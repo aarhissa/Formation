@@ -1,0 +1,19 @@
+2024-08-09 17:33:28.237162+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LOAN" not found (this database is empty); SQL statement:
+SELECT * FROM LOAN [42104-230]
+2024-08-09 17:33:50.364128+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LOAN" not found (this database is empty); SQL statement:
+SELECT * FROM loan [42104-230]
+2024-08-09 17:45:08.610650+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "SELECT * [*]category"
+Syntax error in SQL statement "SELECT * [*]category"; SQL statement:
+SELECT * category [42000-230]
+2024-08-09 17:45:18.844288+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CATEGORY" not found (this database is empty); SQL statement:
+select c1_0.code,c1_0.label from category c1_0 [42104-230]
+2024-08-09 17:50:57.321203+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CATEGORY" not found (this database is empty); SQL statement:
+select * from category [42104-224]
+2024-08-09 18:06:39.361511+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CATEGORY" not found (this database is empty); SQL statement:
+select c1_0.code,c1_0.label from category c1_0 [42104-224]

@@ -1,0 +1,5 @@
+http://localhost:8083/library/rest/category/api/allCategories
+http://localhost:8083/library/swagger-ui/index.html
+http://localhost:8083/library/h2-console/
+
+url JDBC - jdbc:h2:D:\work\DEV\eclipse-workspace\library\src\main\resources\database\library-db
