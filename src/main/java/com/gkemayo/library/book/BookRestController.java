@@ -87,6 +87,30 @@ public class BookRestController {
 		bookService.deleteBook(bookId);
 		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 	}
+	
+	@GetMapping("/all")
+	@Operation(summary ="List all books of the Library")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode  = "200", description  = "Ok: successfully listed"),
+			@ApiResponse(responseCode  = "204", description  = "No Content: no result founded"),
+	})
+	public ResponseEntity<List<BookDTO>> getAllBooks(){
+		
+
+		List<Book> books = bookService.findAll();
+		if (!CollectionUtils.isEmpty(books)) {
+			// on retire tous les élts null que peut contenir cette liste => pour éviter les
+			// NPE par la suite
+			books.removeAll(Collections.singleton(null));
+			List<BookDTO> bookDTOs = books.stream().map(book -> {
+				return mapBookToBookDTO(book);
+			}).collect(Collectors.toList());
+			return new ResponseEntity<List<BookDTO>>(bookDTOs, HttpStatus.OK);
+		}
+		return new ResponseEntity<List<BookDTO>>(HttpStatus.NO_CONTENT);
+		
+		
+	}
 
 	@GetMapping("/searchByTitle")
 	@Operation(description="Search Books in the Library by title")

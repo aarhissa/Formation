@@ -2,14 +2,19 @@ package com.gkemayo.library.customer;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 
 @Schema(defaultValue = "Customer Model")
+@JsonIgnoreProperties(value = {"id"})
 public class CustomerDTO implements Comparable<CustomerDTO>{
 	
 	@Schema(defaultValue = "Customer id")
+	@JsonIgnore
 	private Integer id;
 	
 	@Schema(defaultValue = "Customer first name")
@@ -26,6 +31,15 @@ public class CustomerDTO implements Comparable<CustomerDTO>{
 	
 	@Schema(defaultValue = "Customer email")
 	private String email;
+	
+	
+	@Schema(defaultValue = "Customer password")
+	private String password;
+	
+	
+	@Schema(defaultValue = "Customer roles")
+	private String roles;
+	
 	
 	@Schema(defaultValue = "Customer creation date in the system")
 	private LocalDate creationDate;
@@ -84,6 +98,25 @@ public class CustomerDTO implements Comparable<CustomerDTO>{
 
 	public void setCreationDate(LocalDate creationDate) {
 		this.creationDate = creationDate;
+	}
+	
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+	
+	
+	public String getRoles() {
+		return this.roles;
 	}
 
 	@Override

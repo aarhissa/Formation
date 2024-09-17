@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,14 +16,20 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
 	private ICustomerDao customerDao;
+	@Autowired
+	private  PasswordEncoder passwordEncoder;
 	
 	@Override
 	public Customer saveCustomer(Customer customer) {
+		
+		customer.setPassword(passwordEncoder.encode(customer.getPassword()));
 		return customerDao.save(customer);
 	}
 
 	@Override
 	public Customer updateCustomer(Customer customer) {
+		
+		customer.setPassword(passwordEncoder.encode(customer.getPassword()));
 		return customerDao.save(customer);
 	}
 

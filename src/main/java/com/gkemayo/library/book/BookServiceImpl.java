@@ -37,6 +37,11 @@ public class BookServiceImpl implements IBookService {
 	public List<Book> findBooksByTitleOrPartTitle(String title) {
 		return bookDao.findByTitleLikeIgnoreCase((new StringBuilder()).append("%").append(title).append("%").toString());
 	}
+	
+	@Override
+	public List<Book> findAll() {
+		return bookDao.findAll();
+	}
 
 	@Override
 	public Book findBookByIsbn(String isbn) {

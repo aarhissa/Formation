@@ -34,6 +34,14 @@ public class Customer {
 	
 	private LocalDate creationDate;
 	
+
+    private String password;
+    
+    
+    private String roles;
+    
+    
+	
 	Set<Loan> loans = new HashSet<Loan>();
 
 	@Id
@@ -139,6 +147,22 @@ public class Customer {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
 	}
 	
 }
